@@ -1,0 +1,39 @@
+.button-togglers,.search-term-video-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-togglers {
+    margin-bottom: 5%;
+}
+
+mat-icon, .video-card {
+    cursor: pointer;
+}
+
+mat-card-title {
+    text-wrap: wrap;
+}
+
+.video-thumbnail {
+    margin-left: 2%;
+    margin-bottom: 2%;
+    border-radius: 5%;
+    width: auto;
+}
+
+.input-fields {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    margin-top: 5%;
+}
+
+mat-form-field {
+    display: inline;
+}
+
+button {
+    margin-left: 2%;
+}

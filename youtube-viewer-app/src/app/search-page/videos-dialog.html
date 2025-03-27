@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Videos</h1>
+<div mat-dialog-content *ngFor="let video of data.videos;">
+    <mat-card class="video-card">
+        <mat-card-header>
+            <mat-card-title-group (click)="viewVideo(video.id.videoId)">
+              <mat-card-title [innerHTML]="video.snippet.title"></mat-card-title>
+              <mat-card-subtitle [innerHTML]="video.snippet.channelTitle"></mat-card-subtitle>
+              <mat-card-subtitle [innerHTML]="video.snippet.publishedAt | date: 'dd/MM/yyyy'"></mat-card-subtitle>
+              <img class="video-thumbnail" mat-card-sm-image [src]="video.snippet.thumbnails.medium.url" >
+            </mat-card-title-group>
+          </mat-card-header>
+    </mat-card>
+</div>

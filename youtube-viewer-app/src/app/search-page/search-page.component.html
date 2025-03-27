@@ -1,0 +1,39 @@
+<div>
+    <mat-card>
+        <mat-card-content>
+            <form>
+                <div class="button-togglers">
+                    <mat-card-title>Search By...</mat-card-title>
+                    <mat-button-toggle-group [formControl]="searchByControl" aria-label="Search By..." value="videoId">
+                        <mat-button-toggle value="videoId">Video ID</mat-button-toggle>
+                        <mat-button-toggle value="searchTerm">Search Term</mat-button-toggle>
+                    </mat-button-toggle-group>
+                    <div class="search-term-video-type" *ngIf="searchByControl.value=='searchTerm'">
+                        <mat-card-title>Video Subject</mat-card-title>
+                        <mat-button-toggle-group [formControl]="videoSubjectControl" aria-label="Video Subject">
+                            <mat-button-toggle *ngFor="let subject of videoSubjects" value="{{subject}}">{{subject}}</mat-button-toggle>
+                        </mat-button-toggle-group>
+                        <mat-card-title>Video Type</mat-card-title>
+                        <mat-button-toggle-group [formControl]="videoTypeControl" aria-label="Video Type">
+                            <mat-button-toggle *ngFor="let type of videoTypes" value="{{type}}">{{type}}</mat-button-toggle>
+                        </mat-button-toggle-group>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="input-fields">
+                    <mat-form-field *ngIf="searchByControl.value=='searchTerm'">
+                        <mat-label>Search</mat-label>
+                        <input matInput [formControl]="searchTermControl" (keyup.enter)="search()">
+                        <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon" fontIcon="search" (click)="search()"></mat-icon>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="searchByControl.value!='searchTerm'">
+                        <mat-label>Video ID</mat-label>
+                        <input matInput [formControl]="videoIdControl" (keyup.enter)="viewVideo(videoIdControl.value)">
+                        <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon" fontIcon="search" (click)="viewVideo(videoIdControl.value)"></mat-icon>
+                    </mat-form-field>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+
